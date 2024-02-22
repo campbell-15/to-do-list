@@ -1,3 +1,6 @@
+let addButton = document.getElementById("addTask");
+addButton.addEventListener("click", addTask);
+
 function addTask() {
     let taskInput = document.getElementById("taskInput");
     let taskList = document.getElementById("taskList");
@@ -19,3 +22,18 @@ function addTask() {
         taskInput.value = "";
     }
 }
+
+let taskList = document.getElementById("taskList");
+taskList.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON" && event.target.textContent === "Delete") {
+        let listItem = event.target.parentElement;
+        taskList.removeChild(listItem);
+    }
+});
+
+taskList.addEventListener("change", function(event) {
+    if (event.target.tagName === "INPUT" && event.target.type === "checkbox") {
+        let listItem = event.target.parentElement;
+        listItem.style.textDecoration = event.target.checked ? "line-through" : "none";
+    }
+});
