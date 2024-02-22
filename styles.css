@@ -33,7 +33,29 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
+input[type="text"] {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 button {
     margin-left: 10px; /* Adjust as needed */
+    background-color: red;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: greenyellow;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
