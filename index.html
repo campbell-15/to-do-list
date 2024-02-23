@@ -8,18 +8,19 @@
 </head>
 <body>
 
-    <div class="welcome">
-        <h1>Welcome to your task list</h1>
-        <h4>All task items are kept here in your second brain.</h4>
+    <div class="card">
+        <div class="welcome">
+            <h1>Welcome to your task list</h1>
+            <h4>All task items are kept here in your second brain.</h4>
+        </div>
+
+        <div class="tasks">
+            <input type="text" id="taskInput" placeholder="Enter new task:">
+            <button class="btn" id="addTask">Add Task</button>
+        </div>
+
+        <ul id="taskList"></ul>
     </div>
-
-    <div class="tasks">
-        <input type="text" id="taskInput" placeholder="Enter new task:">
-        <button class="btn" id="addTask">Add Task</button>
-    </div>
-
-    <ul id="taskList"></ul>
-
 
     <script src="script.js"></script>
 </body>
