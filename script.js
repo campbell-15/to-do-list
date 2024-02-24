@@ -1,39 +1,77 @@
-let addButton = document.getElementById("addTask");
-addButton.addEventListener("click", addTask);
-
-function addTask() {
-    let taskInput = document.getElementById("taskInput");
+document.addEventListener("DOMContentLoaded", function () {
     let taskList = document.getElementById("taskList");
+    let allTasks = Array.from(taskList.children);
 
-    if (taskInput.value.trim() !== "") {
-        let listItem = document.createElement("li");
-        let checkbox = document.createElement("input");
-        let taskText = document.createTextNode(taskInput.value);
-        let deleteButton = document.createElement("button");
+    let addButton = document.getElementById("addTask");
+    addButton.addEventListener("click", addTask);
 
-        checkbox.type = "checkbox";
-        deleteButton.textContent = "Delete";
+    taskList.addEventListener("click", function (event) {
+        if (event.target.tagName === "BUTTON" && event.target.textContent === "Delete") {
+            let listItem = event.target.parentElement;
+            taskList.removeChild(listItem);
+            allTasks = Array.from(taskList.children);
+        }
+    });
 
-        listItem.appendChild(checkbox);
-        listItem.appendChild(taskText);
-        listItem.appendChild(deleteButton);
-        taskList.appendChild(listItem);
+    taskList.addEventListener("change", function (event) {
+        if (event.target.tagName === "INPUT" && event.target.type === "checkbox") {
+            let listItem = event.target.parentElement;
+            listItem.style.textDecoration = event.target.checked ? "line-through" : "none";
+        }
+    });
 
-        taskInput.value = "";
+    function addTask() {
+        let taskInput = document.getElementById("taskInput");
+
+        if (taskInput.value.trim() !== "") {
+            let listItem = document.createElement("li");
+            let checkbox = document.createElement("input");
+            let taskText = document.createTextNode(taskInput.value);
+            let deleteButton = document.createElement("button");
+
+            checkbox.type = "checkbox";
+            deleteButton.textContent = "Delete";
+
+            listItem.appendChild(checkbox);
+            listItem.appendChild(taskText);
+            listItem.appendChild(deleteButton);
+            taskList.appendChild(listItem);
+            allTasks.push(listItem);
+
+            taskInput.value = "";
+        }
     }
-}
 
-let taskList = document.getElementById("taskList");
-taskList.addEventListener("click", function(event) {
-    if (event.target.tagName === "BUTTON" && event.target.textContent === "Delete") {
-        let listItem = event.target.parentElement;
-        taskList.removeChild(listItem);
+    let allTasksButton = document.querySelector('.all-tasks');
+    let todoButton = document.querySelector('.todo');
+    let completedButton = document.querySelector('.completed');
+
+    allTasksButton.addEventListener("click", function () {
+        showAllTasks();
+    });
+
+    todoButton.addEventListener("click", function () {
+        filterTasks(false);
+    });
+
+    completedButton.addEventListener("click", function () {
+        filterTasks(true);
+    });
+
+    function filterTasks(completed) {
+        allTasks.forEach(function (task) {
+            let checkbox = task.querySelector("input[type='checkbox']");
+            if (checkbox.checked !== completed) {
+                task.style.display = "none";
+            } else {
+                task.style.display = "block";
+            }
+        });
     }
-});
 
-taskList.addEventListener("change", function(event) {
-    if (event.target.tagName === "INPUT" && event.target.type === "checkbox") {
-        let listItem = event.target.parentElement;
-        listItem.style.textDecoration = event.target.checked ? "line-through" : "none";
+    function showAllTasks() {
+        allTasks.forEach(function (task) {
+            task.style.display = "block";
+        });
     }
 });
