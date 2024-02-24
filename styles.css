@@ -10,6 +10,11 @@ body {
     background-size: cover;
 }
 
+a {
+    padding: 10px;
+    margin: 10px;
+}
+
 .card {
     background-color: #fff; /* White background */
     border-radius: 8px;
@@ -59,6 +64,9 @@ ul {
 }
 
 li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 8px 0;
     border-bottom: 1px solid #ccc;
 }
