@@ -11,18 +11,30 @@
 </head>
 <body>
 
-    <div class="card">
-        <div class="welcome">
-            <h1>Welcome!</h1>
-            <h4>All task items are kept here in your second brain.</h4>
+    <div class="whole-list">
+        <header class="d-flex justify-content-center py-3">
+            <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>
+        </header>
+        
+        <div class="card">
+            <div class="welcome">
+                <h1>Welcome!</h1>
+                <h4>All task items are kept here in your second brain.</h4>
+            </div>
+            
+            <div class="tasks">
+                <input type="text" id="taskInput" placeholder="Enter new task:">
+                <button class="btn" id="addTask">Add Task</button>
+            </div>
+            
+            <ul id="taskList"></ul>
         </div>
-
-        <div class="tasks">
-            <input type="text" id="taskInput" placeholder="Enter new task:">
-            <button class="btn" id="addTask">Add Task</button>
-        </div>
-
-        <ul id="taskList"></ul>
     </div>
 
     <script src="script.js"></script>
