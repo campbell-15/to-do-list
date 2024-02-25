@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Set background color */
+    background-color: #a9a5a5; /* Set background color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@ a {
 }
 
 .card {
-    background-color: #dedddd; /* White background */
+    background-color: #a9a5a5; /* White background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
     padding: 20px;
