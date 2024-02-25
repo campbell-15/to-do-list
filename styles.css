@@ -16,7 +16,7 @@ a {
 }
 
 .card {
-    background-color: #fff; /* White background */
+    background-color: #dedddd; /* White background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
     padding: 20px;
