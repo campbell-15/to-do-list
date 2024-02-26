@@ -1,10 +1,13 @@
+// Execute JS after DOM has loaded
 document.addEventListener("DOMContentLoaded", function () {
     let taskList = document.getElementById("taskList");
     let allTasks = Array.from(taskList.children);
 
+    // Get reference to the "Add Task" button and attach an event listener to it
     let addButton = document.getElementById("addTask");
     addButton.addEventListener("click", addTask);
 
+    // Event delegation to handle click events on the task list for deleting tasks
     taskList.addEventListener("click", function (event) {
         if (event.target.tagName === "BUTTON" && event.target.textContent === "Delete") {
             let listItem = event.target.parentElement;
@@ -13,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Event delegation to handle checkbox changes for marking tasks as completed
     taskList.addEventListener("change", function (event) {
         if (event.target.tagName === "INPUT" && event.target.type === "checkbox") {
             let listItem = event.target.parentElement;
@@ -20,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Function to add a new task to the task list
     function addTask() {
         let taskInput = document.getElementById("taskInput");
 
@@ -42,10 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Get references to the Nav buttons
     let allTasksButton = document.querySelector('.all-tasks');
     let todoButton = document.querySelector('.todo');
     let completedButton = document.querySelector('.completed');
 
+    // Attach event listeners to the filter buttons
     allTasksButton.addEventListener("click", function () {
         showAllTasks();
     });
@@ -58,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         filterTasks(true);
     });
 
+    // Function to filter tasks based on completion status
     function filterTasks(completed) {
         allTasks.forEach(function (task) {
             let checkbox = task.querySelector("input[type='checkbox']");
@@ -69,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Function to show all tasks
     function showAllTasks() {
         allTasks.forEach(function (task) {
             task.style.display = "block";
